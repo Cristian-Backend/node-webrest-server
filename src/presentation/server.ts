@@ -12,7 +12,7 @@ app.use(express.json()); // Middleware to parse JSON request bodies
 app.use(express.static(envs.PUBLIC_PATH)); //archivos estaticos de la carpeta public
 
 app.get('*', (req, res) => { // esto significa que cualquier ruta que no haya sido definida previamente, se redirige a index.html
-    const indexPath = path.resolve(__dirname, '../../', envs.PUBLIC_PATH, 'index.html');
+    const indexPath = path.join(__dirname, '..', envs.PUBLIC_PATH, 'index.html'); 
     res.sendFile(indexPath)
     return
  });
